@@ -801,7 +801,8 @@ class BosonicBackend(BaseBosonic):
 
     def measure_threshold(self, modes, shots=1, select=None, **kwargs):
         if select is not None:
-            raise NotImplementedError("Bosonic backend currently does not support " "postselection")
+            self.circuit.post_select_threshold(mode, select)
+            #raise NotImplementedError("Bosonic backend currently does not support " "postselection")
         if shots != 1:
             raise NotImplementedError(
                 "Bosonic backend currently does not support " "multiple shots"
